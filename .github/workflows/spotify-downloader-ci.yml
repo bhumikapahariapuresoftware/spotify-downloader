@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         platform: [ ubuntu-latest, macos-latest, windows-latest ]
-        python-version: [ "3.6.7", "3.7", "3.8", "3.9", "3.10" ]
+        python-version: [ "3.8" ]
 
     steps:
       - uses: actions/checkout@v2
@@ -25,7 +25,7 @@ jobs:
           python -m pip install tox-gh-actions
       - name: Run tests
         run: |
-          tox -e py${{ matrix.python-version }}
+          tox -e py38
         env:
           PLATFORM: ${{ matrix.platform }}
 
